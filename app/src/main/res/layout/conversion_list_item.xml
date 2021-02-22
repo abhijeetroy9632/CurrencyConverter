@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp">
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="JPN"
+            android:id="@+id/currency_text_view"
+            android:text="@{conversionListItemState.component1()}"
+            android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/exchange_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{CommonUtilKt.twoDecimalPointsFormat(conversionListItemState.component3())}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textStyle="italic"
+                tools:text="100.00" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+        <import type="com.paypay.currencyconverter.CommonUtilKt"/>
+        <variable
+            name="conversionListItemState"
+            type="com.paypay.currencyconverter.ui.adapter.itemstate.ConversionListItemState" />
+
+        <variable
+            name="currencyConverterViewModel"
+            type="com.paypay.currencyconverter.viewmodel.CurrencyConverterViewModel" />
+
+    </data>
+</layout>
